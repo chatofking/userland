@@ -32,6 +32,7 @@ MariaDB [(none)]> create database wptest;
 MariaDB [(none)]> select * from INFORMATION_SCHEMA.SCHEMATA where SCHEMA_NAME='wptest';
 MariaDB [(none)]>exit
 https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress/5
+# english
 wget --no-check-certificate http://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
 mv wordpress /var/www/html/wp
@@ -43,3 +44,8 @@ define( 'DB_USER', 'admin' );
 define( 'DB_PASSWORD', 'password!' );
 # replace value
 https:/api.wordpress.org/secret-key/1.1/salt/
+# friendly permalinks
+sudo a2enmod rewrite
+sudo nano /etc/apache2/sites-available/000-default.conf
+# line 1
+<VirtualHost *:80>

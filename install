@@ -1,0 +1,41 @@
+https://pc.watch.impress.co.jp/docs/column/nishikawa/1415900.html
+sudo apt update
+sudo apt upgrade
+# port 2022
+sudo apt install apache2 php php-mysql mariadb-server
+sudo nano /etc/apache2/ports.conf
+listen 80 from listen 8080
+sudo /etc/init.d/apache2 start
+nano /var/www/html/index.php
+<?php phpinfo(); ?>
+sudo /etc/init.d/mysql start
+sudo mysql_secure_installation
+# you will be asked if you want to change the root password, but here (since it is managed by Ubuntu), just press [Enter] and then set root password? [Y / n] n. 
+# After that, all you have to do is [Enter].
+sudo mariadb
+MariaDB [(none)]> GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password!' WITH GRANT OPTION;
+MariaDB [(none)]> FLUSH PRIVILEGES;
+MariaDB [(none)]> exit
+sudo nano /etc/my.cnf
+[client]
+default-character-set = utf8mb4
+[mysqld]
+character-set-server = utf8mb4
+sudo /etc/init.d/mysql restart
+mysql -u admin -p
+Enter password:
+sudo mariadb
+MariaDB [(none)]> create database wptest;
+MariaDB [(none)]> select * from INFORMATION_SCHEMA.SCHEMATA where SCHEMA_NAME='wptest';
+MariaDB [(none)]>exit
+https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress/5
+wget --no-check-certificate http://wordpress.org/latest.tar.gz
+tar -zxvf latest.tar.gz
+mv wordpress /var/www/html/wp
+cd /var/www/html/wp
+cp wp-config-sample.php wp-config.php
+nano wp-config.php
+define( 'DB_NAME', 'wptest' );
+define( 'DB_USER', 'admin' );
+define( 'DB_PASSWORD', 'password!' );
+https:/api.wordpress.org/secret-key/1.1/salt/

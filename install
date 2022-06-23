@@ -5,7 +5,7 @@ sudo apt upgrade
 # ssh port 2022
 sudo apt install apache2 php php-mysql mariadb-server
 sudo nano /etc/apache2/ports.conf
-listen 80 from listen 8080
+listen 80 to listen 8080
 sudo /etc/init.d/apache2 start
 nano /var/www/html/index.php
 <?php phpinfo(); ?>

@@ -2,7 +2,7 @@
 https://pc.watch.impress.co.jp/docs/column/nishikawa/1415900.html
 sudo apt update
 sudo apt upgrade
-# port 2022
+# ssh port 2022
 sudo apt install apache2 php php-mysql mariadb-server
 sudo nano /etc/apache2/ports.conf
 listen 80 from listen 8080

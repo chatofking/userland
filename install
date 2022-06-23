@@ -44,11 +44,9 @@ define( 'DB_USER', 'admin' );
 define( 'DB_PASSWORD', 'password!' );
 # replace value
 https:/api.wordpress.org/secret-key/1.1/salt/
+https://codehunter.cc/a/wordpress/wordpress-jsonapi-wp-json-was-not-found-on-this-server
 # friendly permalinks
 sudo a2enmod rewrite
-sudo nano /etc/apache2/sites-available/000-default.conf
-# after line 1
-<Directory "/var/www/html">
-    AllowOverride All
-</Directory>
+sudo nano /etc/apache2/apache2.conf
+<Directory /var/www/> Options Indexes FollowSymLinks AllowOverride All Require all granted</Directory>
 sudo service apache2 restart

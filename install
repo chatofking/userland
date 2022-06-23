@@ -12,7 +12,8 @@ nano /var/www/html/index.php
 <?php phpinfo(); ?>
 sudo /etc/init.d/mysql start
 sudo mysql_secure_installation
-# you will be asked if you want to change the root password, but here (since it is managed by Ubuntu), just press [Enter] and then set root password? [Y / n] n. 
+# you will be asked if you want to change the root password, but here (since it is managed by Ubuntu), just press [Enter] 
+# and then set root password? [Y / n] n. 
 # After that, all you have to do is [Enter].
 sudo mariadb
 MariaDB [(none)]> GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password!' WITH GRANT OPTION;

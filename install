@@ -6,7 +6,7 @@ sudo apt upgrade
 sudo apt install apache2 php php-mysql mariadb-server
 sudo apt install nano
 sudo nano /etc/apache2/ports.conf
-listen 80 to listen 8080
+listen 8080
 sudo /etc/init.d/apache2 start
 nano /var/www/html/index.php
 <?php phpinfo(); ?>

@@ -49,3 +49,4 @@ sudo a2enmod rewrite
 sudo nano /etc/apache2/sites-available/000-default.conf
 # line 1
 <VirtualHost *:80>
+sudo service apache2 restart
